@@ -318,6 +318,10 @@
   .rulebook-section li{font-size:13.5px; color:var(--ink-muted); line-height:1.6;}
   .rulebook-section > p{font-size:13.5px; color:var(--ink-muted); line-height:1.6; margin:0 0 4px;}
   .rb-sub{font-size:13px; font-weight:700; color:var(--ink); margin:12px 0 6px;}
+  .rb-highlight{
+    display:inline-block; font-size:13px; font-weight:700; color:var(--ink); background:var(--gold-soft);
+    border-radius:8px; padding:6px 12px; margin:6px 0 4px; line-height:1.5;
+  }
   .rb-table{
     display:flex; flex-direction:column; border:1px solid var(--rule); border-radius:10px; overflow:hidden; margin:10px 0;
   }
@@ -531,7 +535,7 @@
         <h3><span class="rb-num">1</span>Thể thức thi</h3>
         <ul>
           <li>48 Tiến sĩ cùng tham gia trả lời 20 câu hỏi chính thức.</li>
-          <li>Mỗi câu hỏi có thời gian trả lời theo hiệu lệnh của MC.</li>
+          <li>Mỗi câu hỏi có thời gian trả lời <b>20 giây</b>, theo hiệu lệnh của MC.</li>
           <li>Thí sinh viết đáp án lên bảng và đồng loạt giơ bảng khi hết giờ.</li>
           <li>Trả lời đúng: tiếp tục thi.</li>
           <li>Trả lời sai, sửa đáp án sau hiệu lệnh hoặc không trả lời đúng thời gian: rời sân.</li>
@@ -613,6 +617,9 @@
           <li>Thí sinh được yêu cầu trợ giúp bằng máy bay giấy.</li>
           <li>Quyền trợ giúp chỉ được sử dụng 01 lần trong toàn bộ cuộc thi.</li>
           <li>Thí sinh phải yêu cầu trợ giúp trước khi đưa ra đáp án.</li>
+        </ul>
+        <div class="rb-highlight">Mỗi người dân tự chuẩn bị giấy bút cho phần cứu trợ này</div>
+        <ul>
           <li>Khán giả viết đáp án lên giấy và phi máy bay vào khu vực sân thi theo hiệu lệnh.</li>
           <li>Thí sinh được tham khảo các đáp án nhưng phải tự lựa chọn và ghi một đáp án cuối cùng lên bảng.</li>
           <li>BTC không bảo đảm tính chính xác của các đáp án từ khán giả.</li>
@@ -711,7 +718,7 @@
     </div>
   </section>
 
-  <footer>Sổ Bộ Hội Làng · bản xem tĩnh xuất lúc 22/09/2026 08:22 UTC — dữ liệu là ảnh chụp tại thời điểm xuất, không tự cập nhật. Xem bản đầy đủ, cập nhật trực tiếp tại trang gốc trên Claude.</footer>
+  <footer>Sổ Bộ Hội Làng · bản xem tĩnh xuất lúc 22/09/2026 09:58 UTC — dữ liệu là ảnh chụp tại thời điểm xuất, không tự cập nhật. Xem bản đầy đủ, cập nhật trực tiếp tại trang gốc trên Claude.</footer>
 </div>
 
 <script>
@@ -733,7 +740,7 @@
   var CHEVRON_SVG = '<svg viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var IS_STATIC_EXPORT = true; window.IS_STATIC_EXPORT = true;
-  var STATIC_EXPORTED_AT = "22/09/2026 08:22 UTC"; window.STATIC_EXPORTED_AT = STATIC_EXPORTED_AT;
+  var STATIC_EXPORTED_AT = "22/09/2026 09:58 UTC"; window.STATIC_EXPORTED_AT = STATIC_EXPORTED_AT;
   var STATIC_VILLAGES = {"v1": {"name": "Làng 1", "members": ["Nguyễn Thị Thu Hà", "Nguyễn Thúy Thanh", "Hoàng Lê Đức Anh", "Lê Việt Hoàng", "Nguyễn Khắc Thảo", "Nguyễn Như Trang", "Nguyễn Thanh Hải", "Nguyễn Thế Oai", "Nguyễn Văn Dương", "Nguyễn Văn Linh", "Nguyễn Văn Thủy", "Nguyễn Văn Tuấn", "Nguyễn Đình Thi", "Nguyễn Đức Dương", "Nguyễn Đức Sáng", "Nhữ Đình Thao", "Phan Văn Chương", "Phạm Duy Anh", "Trương Quang Trường", "Trần Thế Mạnh", "Trịnh Quang Hùng", "Trịnh Thành Công", "Trịnh Thị Hiếu", "Tống Thị Thu Thủy", "Vũ Huy Hoàng", "Vũ Phương Thảo", "Đậu Danh Thái", "Đặng Quang Minh", "Đặng Xuân Ngọc", "Đỗ Sinh Hùng", "Nguyễn Hải Anh"]}, "v2": {"name": "Làng 2", "members": ["Nguyễn Huy Hoàng", "Bàn Hà Tân", "Dương Ngọc Tuân", "Hoàng Anh Dũng", "Hoàng Anh Đức", "Hồ Yến Hoa", "Lê Nguyên Khang", "Lê Văn An", "Lê Văn Hương", "Lưu Quang Vũ", "Lương Thị Hòa", "Nguyễn Khắc Hiếu", "Nguyễn Lan Nhi", "Nguyễn Thanh Huyền", "Nguyễn Thế Hiếu", "Phạm Công Hoàng", "Phạm Minh Quân", "Phạm Trung Thành", "Phạm Văn Hùng", "Trương Minh Ngọc", "Trần Thị Phương Thảo", "Trịnh Thị Phương", "Vũ Ngọc Anh", "Vũ Văn Đồng", "Vương Trung Ân", "Đặng Bá Vương", "Đặng Thanh Quang", "Đặng Thị Thu Tú", "Đỗ Thu Hà", "Đỗ Thị Thanh Huyền", "Đỗ Văn Linh"]}, "v3": {"name": "Làng 3", "members": ["Nguyễn Bảo Long", "Bùi Hà My", "Hoàng Hữu Thảo", "Hồ Ngọc Khánh Linh", "Lê Phương Thùy", "Lê Xuân Cường", "Lại Quốc Trung", "Nguyễn Hoàng Đức Trung", "Nguyễn Mai Phương", "Nguyễn Mạnh Dương", "Nguyễn Việt Bách", "Nguyễn Đăng Bá Khôi", "Ngô Thành Trung", "Phạm Bá Danh", "Phạm Khôi Nguyên", "Phạm Ngọc Huy Hoàng", "Trần Kim Cương", "Trần Thị Bảo Ngọc", "Trần Thị Giang", "Vũ Chí Thanh", "Vũ Hữu Trọng", "Đinh Gia Bảo", "Đoàn Bá Sơn", "Đặng Thanh Sang", "Đỗ Văn Phong", "Đặng Thị Hà"]}, "v4": {"name": "Làng 4", "members": ["Nguyễn Đình Đức", "Bùi Hoàng Lộc", "Dương Thị Thanh Huyền", "Hoàng Minh Hoàng", "Hoàng Quốc Việt", "Hoàng Thị Thùy Chi", "Hoàng Đức Mạnh", "Lê Ngọc Duy", "Lê Thu Hà", "Nguyễn Chí Quân", "Nguyễn Hoàng Châu Anh", "Nguyễn Hoàng Hải", "Nguyễn Ngọc Tân", "Nguyễn Nhật Phong", "Nguyễn Thái Bảo", "Nguyễn Thị Bông", "Nguyễn Thị Truyền", "Nguyễn Văn Bằng", "Nguyễn Văn Đạt", "Nguyễn Đình Thành", "Nguyễn Đức Hưng", "Nguyễn Đức Kiên", "Trịnh Thu Thủy", "Vũ Đức Trung", "Đào Quang Huân", "Đào Thị Minh Hoà", "Đặng Văn Tùng", "Đặng Đình Nghĩa", "Đỗ Nghĩa Hào", "Bùi Thị Ngọc Phương"]}, "v5": {"name": "Làng 5", "members": ["Nguyễn Thị Thu Hòa", "Bùi Quang Huy", "Doãn Hồng Dung", "Lê Minh Anh", "Nguyễn Gia Phước", "Nguyễn Hồng Vân", "Nguyễn Phương Chi", "Nguyễn Thành Nam Thắng", "Nguyễn Thị Như Quỳnh", "Nguyễn Xuân Tùng", "Phan Huy Dũng", "Phạm Hoài Linh", "Phạm Hoàng Hải", "Trần Mỹ Hạnh", "Trần Thùy Liên", "Trần Tấn Dũng", "Trịnh Thị Lâm Trang", "Vũ Xuân Trường", "Đoàn Thị Thu Hồng", "Đặng Thị Hoa"]}, "v6": {"name": "Làng 6", "members": ["Nguyễn Anh Tú", "Hoàng Ngọc Thành", "Hoàng Tuyên Dương", "Lâm Thanh Bình", "Lê Hoàng Anh", "Lê Huy Hoàng", "Lê Thị Thanh Văn", "Lê Tuấn Anh", "Nguyễn Duy Ninh", "Nguyễn Thành Ngọc Anh", "Nguyễn Thị Thúy", "Nguyễn Tuấn Anh", "Nguyễn Viết Mạnh", "Ngụy Hải Tuyến", "Phan Anh Dũng", "Phương Đại Thắng", "Phạm Lê Anh", "Phạm Phúc Bình", "Trần Duy Khánh", "Vũ Hoàng Trung", "Vương Tuấn Kiệt", "Đoàn Văn Nam"]}, "v7": {"name": "Làng 7", "members": ["Trần Thị Cúc", "Bùi Thị Giang", "Hoàng Ngọc Nam", "Hà Quang Tùng", "Hà Thanh Huyền", "Lã Thị Phương Thảo", "Lê Tuấn Linh", "Lại Thúy Nga", "Lại Thị Mai", "Nguyễn Bảo Phú", "Nguyễn Duy Tân", "Nguyễn Hoàng Duy", "Nguyễn Hoàng Vũ", "Nguyễn Thị Minh Trang", "Nguyễn Văn Tuyển", "Ngô Ngọc Lực", "Phạm Ngọc Thế", "Trương Thủy Tiên", "Trần Xuân Hiệp", "Vũ Minh Phước", "Vũ Thị Ngọc", "Vũ Thị Thương", "Đinh Hoàng Anh", "Đào Thúy Hằng", "Đặng Xuân Lãm", "Nguyễn Thị Trà Giang"]}, "v8": {"name": "Làng 8", "members": ["Trần Đình Đắc", "Phạm Hoàng Dương", "Bùi Văn Trung", "Chu Đức Việt", "Hoàng Việt Linh", "Hà Vũ Anh", "Lê Thanh Tuấn", "Lê Thị Anh", "Lê Thị Minh Phương", "Lê Đức Cường", "Lý Viễn Dương", "Lương Minh Hải Vũ", "Mai Phương Linh", "Nghiêm Xuân Nam", "Nguyễn Khánh Linh", "Nguyễn Phụ Đạt", "Nguyễn Tuấn Anh", "Phùng Văn Thái", "Phạm Thị Thúy Quỳnh", "Trần Hồng Ngọc", "Trần Thị Huệ Anh", "Vũ Thị Bình", "Vũ Thị Duyên", "Vũ Thị Xuân", "Vũ Đức Thắng", "Đào Đức Vũ Minh", "Vũ Bá Quân", "Nguyễn Phương Thảo"]}}; window.STATIC_VILLAGES = STATIC_VILLAGES;
   var STATIC_BOOTHS = []; window.STATIC_BOOTHS = STATIC_BOOTHS;
   var STATIC_CANDIDATES = {"v1": {"villageName": "Làng 1", "entries": []}}; window.STATIC_CANDIDATES = STATIC_CANDIDATES;
