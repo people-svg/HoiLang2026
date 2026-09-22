@@ -114,7 +114,7 @@
 
   /* ---------- tabs ---------- */
   .tabbar{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:20px;
+    display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:20px;
   }
   @media (max-width:640px){ .tabbar{grid-template-columns:repeat(2,1fr);} }
   .tabbtn{
@@ -300,6 +300,38 @@
   .limit-note{font-size:12.5px; color:var(--ink-muted); margin-top:8px;}
   .limit-note.full{color:var(--accent); font-weight:600;}
 
+  /* ---------- rulebook ---------- */
+  .rulebook-list{display:flex; flex-direction:column; gap:16px;}
+  .rulebook-section{
+    background:var(--surface); border:1px solid var(--rule); border-radius:14px;
+    padding:18px 20px; box-shadow:var(--shadow);
+  }
+  .rulebook-section h3{
+    display:flex; align-items:center; gap:10px; font-size:16.5px; margin-bottom:10px; color:var(--ink);
+  }
+  .rb-num{
+    flex:none; width:26px; height:26px; border-radius:50%; background:var(--accent); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center; font-family:'Noto Serif',serif; font-weight:700; font-size:13px;
+    box-shadow:0 0 0 3px var(--gold-soft);
+  }
+  .rulebook-section ul{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:6px;}
+  .rulebook-section li{font-size:13.5px; color:var(--ink-muted); line-height:1.6;}
+  .rulebook-section > p{font-size:13.5px; color:var(--ink-muted); line-height:1.6; margin:0 0 4px;}
+  .rb-sub{font-size:13px; font-weight:700; color:var(--ink); margin:12px 0 6px;}
+  .rb-table{
+    display:flex; flex-direction:column; border:1px solid var(--rule); border-radius:10px; overflow:hidden; margin:10px 0;
+  }
+  .rb-row{display:grid; grid-template-columns:1fr 1fr;}
+  .rb-row + .rb-row{border-top:1px solid var(--rule);}
+  .rb-row span{padding:8px 12px; font-size:13px; color:var(--ink-muted);}
+  .rb-row span:first-child{border-right:1px solid var(--rule);}
+  .rb-row.rb-head{background:var(--surface-2);}
+  .rb-row.rb-head span{font-weight:700; color:var(--ink); font-size:12px; text-transform:uppercase; letter-spacing:.03em;}
+  @media (max-width:640px){
+    .rb-row{grid-template-columns:1fr;}
+    .rb-row span:first-child{border-right:none; border-bottom:1px solid var(--rule); font-weight:700; color:var(--ink);}
+  }
+
   /* ---------- timeline ---------- */
   .timeline{display:grid; grid-template-columns:repeat(4,1fr); gap:14px;}
   @media (max-width:760px){ .timeline{grid-template-columns:1fr;} }
@@ -421,6 +453,7 @@
     <button class="tabbtn" role="tab" data-tab="villages" aria-selected="true"><span class="seal">02</span>Danh sách làng</button>
     <button class="tabbtn" role="tab" data-tab="pho-hoi" aria-selected="false"><span class="seal">03</span>Phố Hội</button>
     <button class="tabbtn" role="tab" data-tab="khoa-cu" aria-selected="false"><span class="seal">04</span>Khoa Cử</button>
+    <button class="tabbtn" role="tab" data-tab="rulebook" aria-selected="false"><span class="seal">05</span>Luật Thi Đình</button>
   </nav>
 
   <!-- 01 VILLAGES -->
@@ -485,6 +518,118 @@
       <span class="panel-note">Ghi danh theo làng, tối đa 4 người/đội — hỗ trợ thí sinh của làng mình bằng minigame khi vào vòng giải cứu</span>
     </div>
     <div class="grid" id="rescue-grid"></div>
+  </section>
+
+  <!-- 05 RULEBOOK -->
+  <section class="panel" data-panel="rulebook" hidden>
+    <div class="panel-head">
+      <h2>Luật Thi Đình</h2>
+      <span class="panel-note">Thể lệ chính thức vòng thi Rung chuông vàng</span>
+    </div>
+    <div class="rulebook-list">
+      <article class="rulebook-section">
+        <h3><span class="rb-num">1</span>Thể thức thi</h3>
+        <ul>
+          <li>48 Tiến sĩ cùng tham gia trả lời 20 câu hỏi chính thức.</li>
+          <li>Mỗi câu hỏi có thời gian trả lời theo hiệu lệnh của MC.</li>
+          <li>Thí sinh viết đáp án lên bảng và đồng loạt giơ bảng khi hết giờ.</li>
+          <li>Trả lời đúng: tiếp tục thi.</li>
+          <li>Trả lời sai, sửa đáp án sau hiệu lệnh hoặc không trả lời đúng thời gian: rời sân.</li>
+          <li>Người duy nhất còn lại cuối cùng được xướng danh Trạng nguyên.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">2</span>Hai lượt cứu hộ</h3>
+        <p>Toàn bộ cuộc thi có tối đa 02 lượt cứu hộ. Trong mỗi lượt, đội giải cứu của 08 làng sẽ cùng tham gia một minigame hoặc thử thách chung. Các đội được xếp hạng dựa trên thành tích từ cao xuống thấp. Thứ hạng của đội quyết định số Tiến sĩ thuộc làng được trở lại sân:</p>
+        <div class="rb-table">
+          <div class="rb-row rb-head"><span>Thứ hạng minigame</span><span>Số Tiến sĩ được cứu</span></div>
+          <div class="rb-row"><span>Hạng 1</span><span>06 Tiến sĩ</span></div>
+          <div class="rb-row"><span>Hạng 2</span><span>05 Tiến sĩ</span></div>
+          <div class="rb-row"><span>Hạng 3–4</span><span>04 Tiến sĩ</span></div>
+          <div class="rb-row"><span>Hạng 5–6</span><span>03 Tiến sĩ</span></div>
+          <div class="rb-row"><span>Hạng 7–8</span><span>02 Tiến sĩ</span></div>
+        </div>
+        <p class="rb-sub">Nguyên tắc áp dụng:</p>
+        <ul>
+          <li>Cơ chế quy đổi trên được áp dụng độc lập cho cả hai lượt cứu hộ.</li>
+          <li>Kết quả của lượt trước không được cộng dồn sang lượt sau.</li>
+          <li>Mỗi làng chỉ được cứu các Tiến sĩ thuộc làng mình đã bị loại.</li>
+          <li>Nếu số Tiến sĩ đã bị loại của một làng ít hơn quyền cứu nhận được, làng chỉ được trả lại số người thực tế đã bị loại; suất còn thừa không được chuyển cho làng khác hoặc bảo lưu.</li>
+          <li>Nếu số người được cứu ít hơn số Tiến sĩ đã bị loại, làng phải xác định đúng số người được trở lại sân trong thời gian BTC quy định.</li>
+          <li>Nếu các đội có thành tích bằng nhau, BTC sử dụng tiêu chí phụ hoặc tổ chức một lượt phân hạng nhanh để xác định thứ tự.</li>
+          <li>Thành tích và thứ hạng do Game Master công bố là kết quả cuối cùng.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">3</span>Hồi thi khi sân không còn người</h3>
+        <p class="rb-sub" style="margin-top:0;">Nếu tất cả thí sinh cùng bị loại khi chưa tìm được Trạng nguyên:</p>
+        <ul>
+          <li>Những người vừa bị loại tại câu hỏi gần nhất được trở lại sân.</li>
+          <li>Cuộc thi tiếp tục từ câu hỏi kế tiếp.</li>
+          <li>Đây là cơ chế hồi thi bắt buộc, không tính vào 02 lượt cứu hộ.</li>
+          <li>Nếu tình huống tiếp tục xảy ra, cơ chế này được lặp lại cho đến khi tìm được một người duy nhất.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">4</span>Câu hỏi phụ</h3>
+        <ul>
+          <li>Nếu chỉ còn 01 người: người đó trở thành Trạng nguyên.</li>
+          <li>Nếu còn từ 02 người trở lên: tiếp tục thi câu hỏi phụ theo hình thức loại trực tiếp.</li>
+          <li>Nếu tất cả cùng trả lời sai: những người vừa bị loại được hồi thi và tiếp tục trả lời câu hỏi phụ.</li>
+          <li>Cuộc thi chỉ kết thúc khi tìm được 01 Trạng nguyên duy nhất.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">5</span>Thử thách mang thưởng</h3>
+        <div class="rb-table">
+          <div class="rb-row rb-head"><span>Câu vượt qua</span><span>Thưởng cho mỗi hộ khẩu</span></div>
+          <div class="rb-row"><span>Câu 15</span><span>50.000 đồng</span></div>
+          <div class="rb-row"><span>Câu 16</span><span>60.000 đồng</span></div>
+          <div class="rb-row"><span>Câu 17</span><span>70.000 đồng</span></div>
+          <div class="rb-row"><span>Câu 18</span><span>80.000 đồng</span></div>
+          <div class="rb-row"><span>Câu 19</span><span>90.000 đồng</span></div>
+          <div class="rb-row"><span>Câu 20</span><span>100.000 đồng</span></div>
+        </div>
+        <p class="rb-sub">Nguyên tắc trao thưởng:</p>
+        <ul>
+          <li>Việc có nhiều thí sinh cùng vượt qua một mốc không đồng nghĩa với việc nhiều làng cùng nhận thưởng.</li>
+          <li>BTC chỉ xác nhận phần thưởng sau khi tìm được một người chiến thắng cuối cùng.</li>
+          <li>Mức thưởng được tính theo câu hỏi chính thức cao nhất mà Trạng nguyên đã trả lời đúng.</li>
+          <li>Ví dụ: nhiều thí sinh cùng vượt qua câu 18 nhưng chỉ một người đi xa nhất và trở thành Trạng nguyên, phần thưởng chỉ được trao cho làng của người đó.</li>
+          <li>Nếu Trạng nguyên vượt qua câu 20, mỗi hộ khẩu thuộc làng của Trạng nguyên nhận 100.000 đồng.</li>
+          <li>Câu hỏi phụ chỉ dùng để phân định Trạng nguyên, không làm tăng mức thưởng vượt quá 100.000 đồng/hộ khẩu.</li>
+          <li>Không chia thưởng hoặc trao đồng hạng cho nhiều thí sinh, nhiều làng.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">6</span>Quyền trợ giúp "Máy bay giấy"</h3>
+        <p class="rb-sub" style="margin-top:0;">Khi chỉ còn 01 thí sinh trên sân và người này đang chinh phục các câu từ 15 đến 20:</p>
+        <ul>
+          <li>Thí sinh được yêu cầu trợ giúp bằng máy bay giấy.</li>
+          <li>Quyền trợ giúp chỉ được sử dụng 01 lần trong toàn bộ cuộc thi.</li>
+          <li>Thí sinh phải yêu cầu trợ giúp trước khi đưa ra đáp án.</li>
+          <li>Khán giả viết đáp án lên giấy và phi máy bay vào khu vực sân thi theo hiệu lệnh.</li>
+          <li>Thí sinh được tham khảo các đáp án nhưng phải tự lựa chọn và ghi một đáp án cuối cùng lên bảng.</li>
+          <li>BTC không bảo đảm tính chính xác của các đáp án từ khán giả.</li>
+          <li>Quyền trợ giúp không được khôi phục nếu sau đó có thí sinh hồi thi.</li>
+        </ul>
+      </article>
+
+      <article class="rulebook-section">
+        <h3><span class="rb-num">7</span>Quy định chung</h3>
+        <ul>
+          <li>Thí sinh không sử dụng điện thoại, tài liệu hoặc nhận trợ giúp ngoài cơ chế được BTC cho phép.</li>
+          <li>Đáp án phải rõ ràng, đúng nội dung và được đưa ra trong thời gian quy định.</li>
+          <li>Những đáp án có cách viết khác nhau nhưng cùng ý nghĩa chỉ được chấp nhận khi Game Master xác nhận.</li>
+          <li>Trong mọi tình huống phát sinh, quyết định của Game Master và BTC là quyết định cuối cùng.</li>
+        </ul>
+      </article>
+    </div>
   </section>
 
   <!-- 04 TIMELINE -->
@@ -566,7 +711,7 @@
     </div>
   </section>
 
-  <footer>Sổ Bộ Hội Làng · bản xem tĩnh xuất lúc 21/09/2026 02:29 UTC — dữ liệu là ảnh chụp tại thời điểm xuất, không tự cập nhật. Xem bản đầy đủ, cập nhật trực tiếp tại trang gốc trên Claude.</footer>
+  <footer>Sổ Bộ Hội Làng · bản xem tĩnh xuất lúc 22/09/2026 08:22 UTC — dữ liệu là ảnh chụp tại thời điểm xuất, không tự cập nhật. Xem bản đầy đủ, cập nhật trực tiếp tại trang gốc trên Claude.</footer>
 </div>
 
 <script>
@@ -588,7 +733,7 @@
   var CHEVRON_SVG = '<svg viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
   var IS_STATIC_EXPORT = true; window.IS_STATIC_EXPORT = true;
-  var STATIC_EXPORTED_AT = "21/09/2026 02:29 UTC"; window.STATIC_EXPORTED_AT = STATIC_EXPORTED_AT;
+  var STATIC_EXPORTED_AT = "22/09/2026 08:22 UTC"; window.STATIC_EXPORTED_AT = STATIC_EXPORTED_AT;
   var STATIC_VILLAGES = {"v1": {"name": "Làng 1", "members": ["Nguyễn Thị Thu Hà", "Nguyễn Thúy Thanh", "Hoàng Lê Đức Anh", "Lê Việt Hoàng", "Nguyễn Khắc Thảo", "Nguyễn Như Trang", "Nguyễn Thanh Hải", "Nguyễn Thế Oai", "Nguyễn Văn Dương", "Nguyễn Văn Linh", "Nguyễn Văn Thủy", "Nguyễn Văn Tuấn", "Nguyễn Đình Thi", "Nguyễn Đức Dương", "Nguyễn Đức Sáng", "Nhữ Đình Thao", "Phan Văn Chương", "Phạm Duy Anh", "Trương Quang Trường", "Trần Thế Mạnh", "Trịnh Quang Hùng", "Trịnh Thành Công", "Trịnh Thị Hiếu", "Tống Thị Thu Thủy", "Vũ Huy Hoàng", "Vũ Phương Thảo", "Đậu Danh Thái", "Đặng Quang Minh", "Đặng Xuân Ngọc", "Đỗ Sinh Hùng", "Nguyễn Hải Anh"]}, "v2": {"name": "Làng 2", "members": ["Nguyễn Huy Hoàng", "Bàn Hà Tân", "Dương Ngọc Tuân", "Hoàng Anh Dũng", "Hoàng Anh Đức", "Hồ Yến Hoa", "Lê Nguyên Khang", "Lê Văn An", "Lê Văn Hương", "Lưu Quang Vũ", "Lương Thị Hòa", "Nguyễn Khắc Hiếu", "Nguyễn Lan Nhi", "Nguyễn Thanh Huyền", "Nguyễn Thế Hiếu", "Phạm Công Hoàng", "Phạm Minh Quân", "Phạm Trung Thành", "Phạm Văn Hùng", "Trương Minh Ngọc", "Trần Thị Phương Thảo", "Trịnh Thị Phương", "Vũ Ngọc Anh", "Vũ Văn Đồng", "Vương Trung Ân", "Đặng Bá Vương", "Đặng Thanh Quang", "Đặng Thị Thu Tú", "Đỗ Thu Hà", "Đỗ Thị Thanh Huyền", "Đỗ Văn Linh"]}, "v3": {"name": "Làng 3", "members": ["Nguyễn Bảo Long", "Bùi Hà My", "Hoàng Hữu Thảo", "Hồ Ngọc Khánh Linh", "Lê Phương Thùy", "Lê Xuân Cường", "Lại Quốc Trung", "Nguyễn Hoàng Đức Trung", "Nguyễn Mai Phương", "Nguyễn Mạnh Dương", "Nguyễn Việt Bách", "Nguyễn Đăng Bá Khôi", "Ngô Thành Trung", "Phạm Bá Danh", "Phạm Khôi Nguyên", "Phạm Ngọc Huy Hoàng", "Trần Kim Cương", "Trần Thị Bảo Ngọc", "Trần Thị Giang", "Vũ Chí Thanh", "Vũ Hữu Trọng", "Đinh Gia Bảo", "Đoàn Bá Sơn", "Đặng Thanh Sang", "Đỗ Văn Phong", "Đặng Thị Hà"]}, "v4": {"name": "Làng 4", "members": ["Nguyễn Đình Đức", "Bùi Hoàng Lộc", "Dương Thị Thanh Huyền", "Hoàng Minh Hoàng", "Hoàng Quốc Việt", "Hoàng Thị Thùy Chi", "Hoàng Đức Mạnh", "Lê Ngọc Duy", "Lê Thu Hà", "Nguyễn Chí Quân", "Nguyễn Hoàng Châu Anh", "Nguyễn Hoàng Hải", "Nguyễn Ngọc Tân", "Nguyễn Nhật Phong", "Nguyễn Thái Bảo", "Nguyễn Thị Bông", "Nguyễn Thị Truyền", "Nguyễn Văn Bằng", "Nguyễn Văn Đạt", "Nguyễn Đình Thành", "Nguyễn Đức Hưng", "Nguyễn Đức Kiên", "Trịnh Thu Thủy", "Vũ Đức Trung", "Đào Quang Huân", "Đào Thị Minh Hoà", "Đặng Văn Tùng", "Đặng Đình Nghĩa", "Đỗ Nghĩa Hào", "Bùi Thị Ngọc Phương"]}, "v5": {"name": "Làng 5", "members": ["Nguyễn Thị Thu Hòa", "Bùi Quang Huy", "Doãn Hồng Dung", "Lê Minh Anh", "Nguyễn Gia Phước", "Nguyễn Hồng Vân", "Nguyễn Phương Chi", "Nguyễn Thành Nam Thắng", "Nguyễn Thị Như Quỳnh", "Nguyễn Xuân Tùng", "Phan Huy Dũng", "Phạm Hoài Linh", "Phạm Hoàng Hải", "Trần Mỹ Hạnh", "Trần Thùy Liên", "Trần Tấn Dũng", "Trịnh Thị Lâm Trang", "Vũ Xuân Trường", "Đoàn Thị Thu Hồng", "Đặng Thị Hoa"]}, "v6": {"name": "Làng 6", "members": ["Nguyễn Anh Tú", "Hoàng Ngọc Thành", "Hoàng Tuyên Dương", "Lâm Thanh Bình", "Lê Hoàng Anh", "Lê Huy Hoàng", "Lê Thị Thanh Văn", "Lê Tuấn Anh", "Nguyễn Duy Ninh", "Nguyễn Thành Ngọc Anh", "Nguyễn Thị Thúy", "Nguyễn Tuấn Anh", "Nguyễn Viết Mạnh", "Ngụy Hải Tuyến", "Phan Anh Dũng", "Phương Đại Thắng", "Phạm Lê Anh", "Phạm Phúc Bình", "Trần Duy Khánh", "Vũ Hoàng Trung", "Vương Tuấn Kiệt", "Đoàn Văn Nam"]}, "v7": {"name": "Làng 7", "members": ["Trần Thị Cúc", "Bùi Thị Giang", "Hoàng Ngọc Nam", "Hà Quang Tùng", "Hà Thanh Huyền", "Lã Thị Phương Thảo", "Lê Tuấn Linh", "Lại Thúy Nga", "Lại Thị Mai", "Nguyễn Bảo Phú", "Nguyễn Duy Tân", "Nguyễn Hoàng Duy", "Nguyễn Hoàng Vũ", "Nguyễn Thị Minh Trang", "Nguyễn Văn Tuyển", "Ngô Ngọc Lực", "Phạm Ngọc Thế", "Trương Thủy Tiên", "Trần Xuân Hiệp", "Vũ Minh Phước", "Vũ Thị Ngọc", "Vũ Thị Thương", "Đinh Hoàng Anh", "Đào Thúy Hằng", "Đặng Xuân Lãm", "Nguyễn Thị Trà Giang"]}, "v8": {"name": "Làng 8", "members": ["Trần Đình Đắc", "Phạm Hoàng Dương", "Bùi Văn Trung", "Chu Đức Việt", "Hoàng Việt Linh", "Hà Vũ Anh", "Lê Thanh Tuấn", "Lê Thị Anh", "Lê Thị Minh Phương", "Lê Đức Cường", "Lý Viễn Dương", "Lương Minh Hải Vũ", "Mai Phương Linh", "Nghiêm Xuân Nam", "Nguyễn Khánh Linh", "Nguyễn Phụ Đạt", "Nguyễn Tuấn Anh", "Phùng Văn Thái", "Phạm Thị Thúy Quỳnh", "Trần Hồng Ngọc", "Trần Thị Huệ Anh", "Vũ Thị Bình", "Vũ Thị Duyên", "Vũ Thị Xuân", "Vũ Đức Thắng", "Đào Đức Vũ Minh", "Vũ Bá Quân", "Nguyễn Phương Thảo"]}}; window.STATIC_VILLAGES = STATIC_VILLAGES;
   var STATIC_BOOTHS = []; window.STATIC_BOOTHS = STATIC_BOOTHS;
   var STATIC_CANDIDATES = {"v1": {"villageName": "Làng 1", "entries": []}}; window.STATIC_CANDIDATES = STATIC_CANDIDATES;
